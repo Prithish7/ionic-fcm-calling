@@ -5,11 +5,11 @@
     <license>Apache 2.0</license>
     <keywords>call, fcm, audio, video</keywords>
     <engines>
-        <engine name="cordova" version=">=9.0.0" />
+        <engine name="cordova" version=">=7.0.0" />
     </engines>
     
-    <js-module src="src/index.ts" name="CallPlugin">
-        <clobbers target="CallPlugin" />
+    <js-module src="www/CallPlugin.js" name="CallPlugin">
+        <clobbers target="window.CallPlugin" />
     </js-module>
     
     <platform name="android">
