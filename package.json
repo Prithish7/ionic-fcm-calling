@@ -1,0 +1,10 @@
+{
+    "name": "my-call-plugin",
+    "version": "1.0.0",
+    "description": "A plugin for handling calls via FCM",
+    "cordova": {
+      "id": "my-call-plugin",
+      "platforms": ["android", "ios"]
+    }
+  }
+  

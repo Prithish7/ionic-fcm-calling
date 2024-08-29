@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="my-call-plugin" version="1.0.0">
+    <name>CallPlugin</name>
+    <description>A plugin for handling incoming audio/video calls via FCM</description>
+    <license>Apache 2.0</license>
+    <keywords>call, fcm, audio, video</keywords>
+    <engines>
+        <engine name="cordova" version=">=9.0.0" />
+    </engines>
+    
+    <js-module src="src/index.ts" name="CallPlugin">
+        <clobbers target="CallPlugin" />
+    </js-module>
+    
+    <platform name="android">
+        <config-file target="AndroidManifest.xml" parent="application">
+            <service android:name=".CallService" android:exported="true">
+                <intent-filter>
+                    <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                </intent-filter>
+            </service>
+        </config-file>
+        <source-file src="src/android/CallService.java" target-dir="src/com/example/callplugin" />
+        <source-file src="src/android/MyFirebaseMessagingService.java" target-dir="src/com/example/callplugin" />
+        <source-file src="src/android/CallPlugin.java" target-dir="src/com/example/callplugin" />
+    </platform>
+    
+    <platform name="ios">
+        <source-file src="src/ios/CallPlugin.swift" framework="true" />
+        <header-file src="src/ios/CallPlugin-Bridging-Header.h" />
+    </platform>
+</plugin>
